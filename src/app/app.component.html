@@ -5,10 +5,12 @@
   </h1>
 </div>
 <ul>
-  Type anything: <input placeholder="anagram"
-                  (keyup)="getAnagrams(word.value)" #word/>
+  Type anything:
+  <input placeholder="anagram"
+         (input)="getWord($event)"/>
   <button class="btn btn-primary"
-  (click)="getAnagram(word.value)">Generate Anagram</button>
+          (click)="getAnagrams(word)"
+          >Generate Anagram</button>
 </ul>
 
 <table *ngIf="anagrams">
@@ -16,7 +18,7 @@
   <th (click)="sort()">Anagrams</th>
   </thead> -->
   <tbody>
-  <tr *ngFor="let anagram of anagrams | slice: 0:10">
+  <tr *ngFor="let anagram of anagrams">
     <td> {{anagrams}} </td>
   </tr>
   </tbody>
